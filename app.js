@@ -14,7 +14,8 @@ const pool = require("./db/pool");
 // require - routes
 const signUpRouter = require("./routes/signUpRouter");
 const membersClubRouter = require("./routes/membersClubRouter");
-const loginRouter = require("./routes/loginRouter")
+const loginRouter = require("./routes/loginRouter");
+const { log } = require("console");
 
 // set app
 const app = express();
@@ -73,13 +74,22 @@ passport.deserializeUser(async (id, done) => {
 
 // GET index page
 app.get("/", (req, res) => {
-    res.render("index");
+    const username = req.user ? req.user.username.split("@")[0] : "Guest";
+    const logged_in = req.user ? true : false
+
+    res.render("index", {
+        username: username,
+        logged_in: logged_in
+    });
 })
 
 // Routes for App
 app.use("/sign-up", signUpRouter);
 app.use("/members-club", membersClubRouter);
 app.use("/log-in", loginRouter);
+app.get("/create-message", (req, res) => {
+    res.redirect("/");
+})
 
 // App LISTEN
 const PORT = process.env.PORT || 3000 

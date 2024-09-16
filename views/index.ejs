@@ -6,13 +6,27 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>
-        <a href="/log-in"><b>Log</b> IN</a>
-        <a href="/sign-up"><b>Sign</b> UP</a>
-        <a href="/members-club">Members Club</a>
-    </h1>
+    <header>
+        <h1>Welcome, <%= username %></h1>
+        <div id="index-control-links">
+            <a href="/log-in"><b>Log</b> IN</a>
+            <a href="/sign-up"><b>Sign</b> UP</a>
+            <a href="/members-club">Members Club</a>
+        </div>
+    </header>
     <main>
-
+        <div id="controls">
+            <% if(logged_in){ %>
+                <button id="create-msg-btn">Create new message</button>
+            <% } %>
+        </div>
     </main>
+
+
+    <script>
+        document.getElementById('create-msg-btn').addEventListener('click', () => {
+            window.location.href = '/create-message'; // Replace with your target URL
+        });
+    </script>
 </body>
 </html>
