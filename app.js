@@ -6,7 +6,6 @@ const session = require("express-session");
 const passport = require("passport");
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require("bcrypt");
-const { body, validationResult } = require('express-validator');
 
 const pool = require("./db/pool");
 
@@ -66,33 +65,8 @@ app.get("/sign-up", (req, res) => {
 app.get("/", (req, res) => {
     res.render("index");
 })
-// app.post("/sign-up", (req, res) => {
-//     console.log(req.body);
-//     // res.redirect("/");
-//     bcrypt.hash(req.body.password, 10, async(err, hashedPassword) => {
-//         if(err){
-//             console.error("bcrypt has fail: ", err);
-//             res.redirect("/");
-//         }else {
-//             await pool.query("INSERT INTO users (first_name, last_name, username, password) VALUES ($1, $2, $3, $4)", [
-//                 req.body.first_name,
-//                 req.body.last_name,
-//                 req.body.username,
-//                 hashedPassword
-//             ])
-//             res.redirect("/");
-//         }
-//     })
-// })
-app.post(
-    '/sign-up',
-    body('password').isLength({ min: 5 }),
-    body('confirm-password').custom((value, { req }) => {
-      return value === req.body.password;
-    }),
-    (req, res) => {
-      // Handle request
-      console.log(req.body);
+app.post("/sign-up", (req, res) => {
+    console.log(req.body);
     // res.redirect("/");
     bcrypt.hash(req.body.password, 10, async(err, hashedPassword) => {
         if(err){
@@ -108,8 +82,7 @@ app.post(
             res.redirect("/");
         }
     })
-    },
-  );
+})
 
 
 const PORT = process.env.PORT || 3000 
