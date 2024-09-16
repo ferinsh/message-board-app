@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Members Club</title>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Members Club, <%= username %>!</h1>
+        <a href="/">Home</a>
+    </header>
+    <main>
+        <% if(member){ %>
+            Membership Status: Active 
+        <% } else { %>
+            Membership Status: Non Member
+            <form action="/members-club" method="POST">
+                <label for="passkey">Enter the passkey</label>
+                <input id="passkey" name="passkey" type="password">
+                <button type="submit" id="submit-passkey-btn">Submit</button>
+            </form>
+        <% }%>
+    </main>
+</body>
+</html>

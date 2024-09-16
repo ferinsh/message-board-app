@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log IN</title>
+</head>
+<body>
+    <h1>Log IN</h1>
+    <form action="/log-in" method="POST">
+        <label for="username">Username (email)</label>
+        <input id="username" name="username" type="email" value="<%= formData.username %>" required>
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" required>
+        <button id="sign-up-btn" type="submit">Submit</button>
+        <a href="/">cancel</a>
+    </form>
+</body>
+</html>
