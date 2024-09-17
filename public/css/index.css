@@ -1,0 +1,46 @@
+
+* {
+    box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+}x
+
+html, body {
+    margin: 0;
+
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+}
+
+.header {
+    height: 5vh;
+    width: 100%;
+    display: flex;
+    
+    justify-content: space-between;
+}
+
+.header > h1 {
+    margin: 0;
+    height: 100%;
+}
+
+.header > #index-control-links {
+    height: 100%;
+    display: flex;
+
+}
+
+.header, .controls {
+    overflow: hidden; /* Hides any overflow content */
+}
+
+#main-content {
+    flex: 1;
+    overflow: auto;
+    /* height: 95vh; */
+}

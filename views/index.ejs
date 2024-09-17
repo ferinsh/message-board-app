@@ -3,30 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Message Board</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
 </head>
 <body>
-    <header>
+    <header class="header">
         <h1>Welcome, <%= username %></h1>
-        <div id="index-control-links">
-            <a href="/log-in"><b>Log</b> IN</a>
+        <div id="control-links-holder">
+            <a href="/log-in" class="control-links"><b>Log</b> IN</a>
             <a href="/sign-up"><b>Sign</b> UP</a>
             <a href="/members-club">Members Club</a>
         </div>
     </header>
-    <main>
+    <main id="main-content">
         <div id="controls">
             <% if(logged_in){ %>
-                <button id="create-msg-btn">Create new message</button>
+                <a id="create-msg-link" href="/create-message">Create new message</a>
+            <% } %>
+        </div>
+        <div id="messages-view">
+            <% if(!error) { %>
+                <ul id="messages-list">
+                    <% messages.forEach(message => { %>
+                        <li>
+                            <%= message.message %>
+                            <% if(member) { %>
+                                -<%= message.username %>
+                            <% } %>
+                        </li>
+                    <% }) %>
+                </ul>
             <% } %>
         </div>
     </main>
 
-
-    <script>
-        document.getElementById('create-msg-btn').addEventListener('click', () => {
-            window.location.href = '/create-message'; // Replace with your target URL
-        });
-    </script>
 </body>
 </html>

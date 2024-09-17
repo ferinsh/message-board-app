@@ -1,7 +1,7 @@
 const pool = require("../db/pool");
 
 function renderMembersPage(req, res){
-    const username = req.user ? req.user.username.split("@")[0] : "Guest";
+    const username = req.user ? req.user.username.split("@")[0] : "guest";
     const membership = req.user ? req.user.membership_status : false;
     // console.log(username);
     
@@ -12,14 +12,14 @@ function renderMembersPage(req, res){
 }
 
 async function handleActivateMember(req, res){
-    const username = req.user ? req.user.username.split("@")[0] : "Guest";
+    const username = req.user ? req.user.username.split("@")[0] : "guest";
 
     // Validate the passkey
     if (req.body.passkey === process.env.MEMBER_PASSKEY) {
         // console.log(username);
         
         // Check if the user is logged in
-        if (username === "Guest") {
+        if (username === "guest") {
             return res.status(400).redirect("/log-in");
         } else {
             try {

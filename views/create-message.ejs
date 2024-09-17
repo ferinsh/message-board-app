@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Message</title>
+</head>
+<body>
+    <%= username %>
+    <%= member %>
+    <header>
+        <h1>Add a message</h1>
+    </header>
+    <main>
+        <% if(!member){ %>
+            <p>
+                Only members can create messages
+            </p>
+        <% } else { %>
+            <form action="/create-message" method="POST">
+                <label for="message">Enter the message</label>
+                <input id="message" name="message" type="text" required>
+                <button id="add-message-btn" type="submit">Submit</button>
+            </form>
+        <% } %>
+
+    </main>
+</body>
+</html>

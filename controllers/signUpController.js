@@ -1,6 +1,7 @@
 const { body, validationResult } = require('express-validator');
 const bcrypt = require("bcrypt");
 const pool = require("../db/pool");
+const passport = require("passport");
 
 
 function renderSignUpPage(req, res){
@@ -21,7 +22,7 @@ async function handleSignUp(req, res){
         });
     }
     // Handle request
-    console.log(req.body);
+    
     // res.redirect("/");
     bcrypt.hash(req.body.password, 10, async(err, hashedPassword) => {
         if(err){
@@ -34,7 +35,7 @@ async function handleSignUp(req, res){
                 req.body.username,
                 hashedPassword
             ])
-            res.redirect("/");
+            res.redirect("/log-in");
         }
     })
 }
