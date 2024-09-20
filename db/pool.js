@@ -13,5 +13,5 @@ module.exports = new Pool({
 });
 
 module.exports = new Pool({
-  connectionString: `postgresql://message_board_ns44_user:vGXc3DwIhjlZqS8K8TrUBaczq5qek5mw@dpg-crmnculumphs739hkt80-a.singapore-postgres.render.com/message_board_ns44`
+  connectionString: `postgresql://message_board_ns44_user:vGXc3DwIhjlZqS8K8TrUBaczq5qek5mw@dpg-crmnculumphs739hkt80-a/message_board_ns44`
 })
