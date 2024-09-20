@@ -6,6 +6,7 @@ const session = require("express-session");
 const passport = require("passport");
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require("bcrypt");
+const { error } = require("console");
 
 
 // require - database
@@ -16,7 +17,7 @@ const signUpRouter = require("./routes/signUpRouter");
 const membersClubRouter = require("./routes/membersClubRouter");
 const loginRouter = require("./routes/loginRouter");
 const createMessageRouter = require("./routes/createMessageRouter");
-const { error } = require("console");
+const logOutRouter = require("./routes/logOutRouter");
 
 // set app
 const app = express();
@@ -116,6 +117,7 @@ app.use("/sign-up", signUpRouter);
 app.use("/members-club", membersClubRouter);
 app.use("/log-in", loginRouter);
 app.use("/create-message", createMessageRouter);
+app.use("/log-out", logOutRouter);
 
 // App LISTEN
 const PORT = process.env.PORT || 3000 

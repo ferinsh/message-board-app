@@ -1,7 +1,9 @@
 
 * {
     box-sizing: border-box; /* Includes padding and border in the element's total width and height */
-}x
+    font-family: "inter", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 20px;
+}
 
 html, body {
     margin: 0;
@@ -16,31 +18,187 @@ body {
     margin: 0;
 }
 
+ol, li {
+    margin: 0px;
+    padding: 0px;
+}
+
+
+/* ^^^ DEFAULTS */
+
+
+/* HEADER */
 .header {
     height: 5vh;
     width: 100%;
     display: flex;
     
     justify-content: space-between;
+    align-items: center;
+
+    background-color: #f9f8f3 ;
+
 }
 
 .header > h1 {
     margin: 0;
+    margin-left: 1rem;
     height: 100%;
+    padding: 0;
+
+    font-size: 1rem;
+    color: darkslategray;
+
 }
 
 .header > #index-control-links {
     height: 100%;
     display: flex;
+    
 
 }
 
 .header, .controls {
-    overflow: hidden; /* Hides any overflow content */
+    overflow: hidden;
 }
+
+#control-links-holder {
+    margin-right: 1rem;
+}
+
+#control-links-holder > a{
+    text-decoration: none;
+    color: darkviolet;
+}
+#control-links-holder > a:link{
+    text-decoration: none;
+    color: darkviolet;
+}
+#control-links-holder > a:visited{
+    text-decoration: none;    
+    color: darkviolet;
+
+}
+#control-links-holder > a:hover{
+    text-decoration: none;
+    color: deeppink;
+}
+#control-links-holder > a:active{
+    text-decoration: none;
+    color: crimson;
+}
+
+
+
+
+
+
+/* MAIN CONTENT */
 
 #main-content {
     flex: 1;
     overflow: auto;
     /* height: 95vh; */
+
+    font-size: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f9f8f3 ;
+}
+
+#main-content > #controls {
+    height: 10%;
+    width: 100%;
+
+    max-height: 10%;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    /* border-bottom: 2px solid hotpink; */
+    /* background-color: beige; */
+}
+
+#main-content > #controls > .user-controls {
+    text-decoration: none;
+    color: darkviolet;
+    background-color: #f5f5dc;
+
+    font-size: 0.6rem;
+
+    height: 50%;
+    max-height: 100%;
+    width: 10%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "inter", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 500;
+    border-radius: 1rem;
+}
+#main-content > #controls > .user-controls:link {
+    text-decoration: none;
+    color: darkviolet;
+    background-color: #f5f5dc;
+}
+#main-content > #controls > .user-controls:visited {
+    text-decoration: none;
+    /* color: darkviolet; */
+    background-color: #f5f5dc;
+}
+#main-content > #controls > .user-controls:hover {
+    text-decoration: none;
+    color: deeppink;
+    background-color: #f3e5f5;
+}
+#main-content > #controls > .user-controls:active {
+    text-decoration: none;
+    color: crimson;
+    background-color: #f3e5f5;
+}
+
+#messages-view {
+    width: 80%;
+    max-width: 80%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    overflow-y: scroll;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+
+#messages-view::-webkit-scrollbar {
+    display: none;
+}
+
+#messages-list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    
+}
+
+#messages-list > .message-item {
+    border: 1px solid black;
+    box-sizing: border-box;
+    border-radius: 1rem;
+}
+
+.message-item > li {
+    display: block;
+    font-size: 2rem;
+    list-style-type: none;
+
+    float: none;
+    margin: autox;
 }

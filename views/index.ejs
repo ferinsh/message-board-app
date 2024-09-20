@@ -8,29 +8,40 @@
 </head>
 <body>
     <header class="header">
-        <h1>Welcome, <%= username %></h1>
+        <h1><%= username %></h1>
         <div id="control-links-holder">
-            <a href="/log-in" class="control-links"><b>Log</b> IN</a>
-            <a href="/sign-up"><b>Sign</b> UP</a>
-            <a href="/members-club">Members Club</a>
+            <% if(!logged_in){ %>
+            <a href="/log-in" class="control-links"><b>Log</b> in</a>
+            <% } %>
+            
+            <% if(!logged_in){ %>
+            <a href="/sign-up"><b>Sign</b> up</a>
+            <% } %>
+                
+            <% if(logged_in){ %>
+            <a href="/members-club"><b>Members</b> club</a>
+            <% } %>
         </div>
     </header>
     <main id="main-content">
         <div id="controls">
             <% if(logged_in){ %>
-                <a id="create-msg-link" href="/create-message">Create new message</a>
+                <a class="user-controls" href="/create-message">New MESSAGE</a>
+                <a class="user-controls" href="/log-out">Log Out</a>
             <% } %>
         </div>
         <div id="messages-view">
             <% if(!error) { %>
                 <ul id="messages-list">
                     <% messages.forEach(message => { %>
-                        <li>
-                            <%= message.message %>
-                            <% if(member) { %>
-                                -<%= message.username %>
-                            <% } %>
-                        </li>
+                        <div class="message-item">
+                            <li>
+                                <%= message.message %>
+                                <% if(member) { %>
+                                    -<%= message.username %>
+                                <% } %>
+                            </li>
+                        </div>
                     <% }) %>
                 </ul>
             <% } %>
