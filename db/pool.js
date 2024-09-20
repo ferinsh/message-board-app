@@ -11,3 +11,7 @@ module.exports = new Pool({
     password: process.env.DB_PASS,
     port: process.env.DB_PORT,
 });
+
+module.exports = new Pool({
+  connectionString: `postgresql://message_board_ns44_user:vGXc3DwIhjlZqS8K8TrUBaczq5qek5mw@dpg-crmnculumphs739hkt80-a.singapore-postgres.render.com/message_board_ns44`
+})
