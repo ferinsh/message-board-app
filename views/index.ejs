@@ -36,10 +36,12 @@
                     <% messages.forEach(message => { %>
                         <div class="message-item">
                             <li>
-                                <%= message.message %>
                                 <% if(member) { %>
-                                    -<%= message.username %>
+                                    <div id="msg-username">
+                                        <h1><%= message.username %></h1>
+                                    </div>
                                 <% } %>
+                                    <div id="msg-content"><p><%= message.message %></p></div>
                             </li>
                         </div>
                     <% }) %>

@@ -4,16 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log IN</title>
+    <link rel="stylesheet" type="text/css" href="css/login.css">
 </head>
 <body>
-    <h1>Log IN</h1>
-    <form action="/log-in" method="POST">
-        <label for="username">Username (email)</label>
-        <input id="username" name="username" type="email" value="<%= formData.username %>" required>
-        <label for="password">Password</label>
-        <input id="password" name="password" type="password" required>
-        <button id="sign-up-btn" type="submit">Submit</button>
-        <a href="/">cancel</a>
-    </form>
+    <div id="login-page-left">
+        <h1 id="login-header">Log IN</h1>
+        <form action="/log-in" method="POST" id="login-form">
+            <div class="form-user-in">
+                <label for="username" class="form-labels">Username (email)</label><br>
+                <input class="form-inputs" id="username" name="username" type="email" value="<%= formData.username %>" required>
+            </div>
+            <div class="form-password-in">
+                <label for="password" class="form-labels">Password</label><br>
+                <input class="form-inputs" id="password" name="password" type="password" required>
+            </div>
+
+            <div class="form-control">
+                <button id="sign-up-btn" type="submit">Submit</button>
+                <a href="/">Cancel</a>
+            </div>
+            
+        </form>
+    </div>
+    <div id="login-page-right">
+
+    </div>
 </body>
 </html>

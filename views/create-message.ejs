@@ -4,22 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Message</title>
+    <link rel="stylesheet" type="text/css" href="css/create-message.css">
 </head>
 <body>
-    <%= username %>
-    <%= member %>
-    <header>
+    <!-- <%= username %>
+    <%= member %> -->
+    <header id="create-msg-header">
         <h1>Add a message</h1>
     </header>
-    <main>
+    <main id="create-msg-main">
         <% if(!member){ %>
-            <p>
+            <p id="restrict-para">
                 Only members can create messages
             </p>
         <% } else { %>
-            <form action="/create-message" method="POST">
-                <label for="message">Enter the message</label>
-                <input id="message" name="message" type="text" required>
+            <form action="/create-message" method="POST" id="create-msg-form">
+                <textarea id="message" name="message" type="text" required></textarea>
                 <button id="add-message-btn" type="submit">Submit</button>
             </form>
         <% } %>

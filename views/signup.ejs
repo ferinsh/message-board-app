@@ -4,34 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign UP</title>
+    <link rel="stylesheet" type="text/css" href="css/signup.css">
 </head>
 <body>
-    <h1>
-        Sign UP
-    </h1>
-    <% if (errors && errors.length > 0) { %>
-        <div id="error-view-div">
-            <ul>
-                <% errors.forEach(error => { %>
-                    <li><%= error.msg %></li>
-                <% }) %>
-            </ul>
-        </div>
-    <% } %>
-    <form action="/sign-up" method="POST">
-        <label for="first_name">First Name</label>
-        <input id="first_name" name="first_name" placeholder="First Name" type="text" value="<%= formData.first_name %>"required/>
-        <label for="last_name">Last Name</label>
-        <input id="last_name" name="last_name" placeholder="Last name" type="text" value="<%= formData.last_name %>"required/>
-        <label for="username">Username</label>
-        <input id="username" name="username" placeholder="johndoe@email.com" type="email" value="<%= formData.email%>"required/>
-        <label for="password">Password</label>
-        <input id="password" name="password" type="password" required/>
-        <label for="confirm_password">Confirm Password</label>
-        <input id="confirm_password" name="confirm_password" type="password" required/>
-        
-        <button id="sign-up-btn" type="submit">Sign Up</button>
-        <a id="cancel-sign-up-link" href="/">Cancel</button>
-    </form>
+    <div id="signup-left">
+        <h1 id="signup-header">
+            Sign UP
+        </h1>
+        <form action="/sign-up" method="POST" id="signup-form">
+            <label for="first_name">First Name</label>
+            <input id="first_name" name="first_name" placeholder="First Name" type="text" value="<%= formData.first_name %>"required/>
+            <label for="last_name">Last Name</label>
+            <input id="last_name" name="last_name" placeholder="Last name" type="text" value="<%= formData.last_name %>"required/>
+            <label for="username">Username</label>
+            <input id="username" name="username" placeholder="johndoe@email.com" type="email" value="<%= formData.email%>"required/>
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" required/>
+            <label for="confirm_password">Confirm Password</label>
+            <input id="confirm_password" name="confirm_password" type="password" required/>
+            
+            <div id="form-control">
+                <button id="sign-up-btn" type="submit">Sign Up</button>
+                <a id="cancel-sign-up-link" href="/">Cancel</button>
+            </div>
+
+        </form>
+
+    </div>
+    <div id="signup-right">
+        <% if (errors && errors.length > 0) { %>
+            <div id="error-view-div">
+                <ul>
+                    <% errors.forEach(error => { %>
+                        <li><%= error.msg %></li>
+                    <% }) %>
+                </ul>
+            </div>
+        <% } %>
+    </div>
+
 </body>
 </html>
